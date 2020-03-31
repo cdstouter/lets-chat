@@ -56,6 +56,10 @@
             }
         },
         add: function(room) {
+            if (room.attributes.slug === 'moviechat') {
+                // navigate to this room
+                window.location = './' + '#!/room/' + room.id;
+            }
             var room = room.toJSON ? room.toJSON() : room,
                 context = _.extend(room, {
                     lastActive: moment(room.lastActive).calendar()
