@@ -4,27 +4,25 @@
 
 <% block class %>lcb-login animated fadeIn<% endblock %>
 
-<% block attributes %>
-    style="background-image: url('./media/img/photos/<$ photo $>');"
-<% endblock %>
-
 <% block js %>
 <$ 'login' | js | safe $>
 <% endblock %>
 
 <% block body %>
     <section class="lcb-login-main">
-        <h1 class="lcb-login-logo">Let<span class="flavour">'</span>s Chat</h1>
+        <!--<h1 class="lcb-login-logo">Let<span class="flavour">'</span>s Chat</h1>-->
         <div class="lcb-login-boxes">
             <form class="lcb-login-box lcb-login-box-login validate" action="./account/login" method="post" data-refresh="true">
-                <h2 class="lcb-login-box-heading"><$ __('Sign in') $></h2>
+                <h2 class="lcb-login-box-heading">Choose a nickname</h2>
                 <img class="lcb-login-avatar" style="display: none;" />
                 <div class="form-group">
-                    <input class="required form-control" placeholder="<$ __('Username or Email') $>" name="username" type="text" autofocus />
+                    <input class="required form-control" placeholder="Nickname" name="username" type="text" autofocus />
                 </div>
+                <!--
                 <div class="form-group">
                     <input class="required form-control" placeholder="<$ __('Password') $>" name="password" type="password" autocomplete="off" />
                 </div>
+                -->
                 <div class="lcb-login-box-bottom">
                     <% if auth.local.enableRegistration %>
                         <div class="links pull-left">
@@ -86,6 +84,7 @@
                     </div>
                 </form>
             <% endif %>
+            <!--
             <footer class="lcb-login-footer">
                 <p class="lcb-login-footer-heart">
                     <i class="fa fa-heart"></i> <$ __('From Toronto with Love') $> <span class="dash">&mdash;</span>
@@ -95,6 +94,7 @@
                     <i class="fa fa-github"></i> <$ __('Fork me on GitHub') $> &raquo;</a>
                 </p>
             </footer>
+            -->
         </div>
     </section>
 <% endblock %>
