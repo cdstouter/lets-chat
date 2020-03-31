@@ -316,9 +316,21 @@ module.exports = function() {
                             });
                         }
                         req.session.passport = temp;
-                        res.json({
-                            status: 'success',
-                            message: 'Logging you in...'
+                        // do we have a default room to show?
+                        let defaultRoom = 'moviechat'; // not sure how to link this to options
+                        core.rooms.slug(defaultRoom, function (err, data) {
+                            if (data && !err) {
+                                res.json({
+                                    status: 'success',
+                                    message: 'Logging you in...',
+                                    roomId: data._id
+                                });
+                            } else {
+                                res.json({
+                                    status: 'success',
+                                    message: 'Logging you in...'
+                                });
+                            }
                         });
                     });
                 });

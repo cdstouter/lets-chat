@@ -25,8 +25,13 @@
                     });
                     if ($form.data('refresh')) {
                         setTimeout(function() {
-                            window.location =
-                                './' + (window.location.hash || '');
+                            if (res.responseJSON.roomId) {
+                                window.location =
+                                    './' + '#!/room/' + res.responseJSON.roomId;
+                            } else {
+                                window.location =
+                                    './' + (window.location.hash || '');
+                            }
                         }, 1000);
                         return;
                     }
